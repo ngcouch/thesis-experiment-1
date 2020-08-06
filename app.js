@@ -32,6 +32,9 @@ var server = app.listen(process.env.PORT, function(){
 app.post('/experiment-data', function(request, response) {
 
     console.log(request.data)
-    response.end()
-
+    response.redirect("https://weinberg.co1.qualtrics.com/jfe/form/SV_cN5FIF35Qm7Gyr3")
+  
+   
 })
+
+
