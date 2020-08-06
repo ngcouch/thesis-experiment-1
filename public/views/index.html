@@ -24,7 +24,23 @@
     timeline.push(welcome)
     
     jsPsych.init({
-	timeline: timeline
+	timeline: timeline,
+	on_finish: function() {
+	    $.ajax({
+		type: "POST",
+		url: "/experiment-data",
+		data: jsPsych.data.get().json(),
+		contentType: "application/json"
+	    })
+		.done(function() {
+		    alert("Thank you!")
+		    window.location.href = "/";
+		})
+		.fail(function() {
+		    alert("A problem occurred while writing to the database. Please contact the researcher for more information.")
+		    window.location.href = "/";
+		})
+	}
     })
 
     </script>
