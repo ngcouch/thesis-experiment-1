@@ -31,7 +31,7 @@ var server = app.listen(process.env.PORT, function(){
 
 app.post('/experiment-data', function(request, response) {
 
-    console.log(request.data)
+    console.log(request.body)
     response.end()
   
    
