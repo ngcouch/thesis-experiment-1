@@ -16,6 +16,53 @@
 
   <script>
 
+
+    // Get participant information and use it to derive their condition number.
+
+    var ID = window.prompt("Enter your participant ID:")
+
+    while (!Object.keys(conditions).includes(ID)) {
+
+	var ID = window.prompt("ID not found. Please check again, or contact the experimenter.")
+
+    }
+
+    // var condition = conditions[ID]
+
+    var condition = ID
+    var layout = Math.floor(condition/24)+1
+
+    // Setup the probability layouts
+
+    var l1 = [.001, .05, .03]
+    var l2 = [.005, .045, .025]
+    var l3 = [.03, .2, .15]
+    var l4 = [.07, .09, .1]
+
+    //
+
+    var Morad_stories = {1: "Morad Conditional high",
+			 2: "Morad Conditional low",
+			 3: "Morad Unconditional high",
+			 4: "Morad Unconditional low"}
+
+    var Wodget_stories = {1: "Wodget Conditional high",
+			 2: "Wodget Conditional low",
+			 3: "Wodget Unconditional high",
+			 4: "Wodget Unconditional low"}
+
+    var Mondel_stories = {1: "Mondel Conditional high",
+			 2: "Mondel Conditional low",
+			 3: "Mondel Unconditional high",
+			 4: "Mondel Unconditional"}
+    
+    var Myastorm_stories = {1: "Myastorm Conditional high",
+			 2: "Myastorm Conditional low",
+			 3: "Myastorm Unconditional high",
+			 4: "Myastorm Unconditional low"}
+
+    // Structure and assemble the experiment.
+    
     var timeline = []
 
     var welcome = {type: "html-keyboard-response",
