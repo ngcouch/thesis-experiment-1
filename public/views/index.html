@@ -22,6 +22,17 @@
 		   stimulus: "Welcome to the experiment, and thank you for your time! Press any key to continue."
 		  };
     timeline.push(welcome)
+
+    var instructions = {type: "html-keyboard-response",
+			stimulus: "In this experiment, you will be asked to estimate various quantites, based on information that we provide you. Information will be presented in story form. For each story, you will be asked multiple questions, and then be given more information. This will happen multiple times. When answering the questions, please keep in mind all of what you know about the situation.
+
+Press the spacebar to continue.",
+			choices: ['32']
+		       };
+
+    timeline.push(instructions)
+
+    
     
     jsPsych.init({
 	timeline: timeline,
