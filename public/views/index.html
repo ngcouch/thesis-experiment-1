@@ -8,6 +8,7 @@
     <script type="text/javascript" src="jsPsych/plugins/jspsych-image-keyboard-response.js"></script>
     <script type="text/javascript" src="jsPsych/plugins/jspsych-survey-text.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jsPsych/plugins/jspsych-html-slider-response.js"></script>
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"/>
 
   </head>
@@ -32,6 +33,104 @@
     var condition = ID
     var layout = Math.floor(condition/24)+1
 
+    var condition_lists = {1 : ['CH','CL','UH','UL'],
+			   2 : ['CH','CL','UL','UH'],
+			   3 : ['CH','UH','CL','UL'],
+			   4 : ['CH','UH','UL','CL'],
+			   5 : ['CH','UL','CL','UH'],
+			   6 : ['CH','UL','UH','CL'],
+			   7 : ['CL','CH','UH','UL'],
+			   8 : ['CL','CH','UL','UH'],
+			   9 : ['CL','UH','CH','UL'],
+			   10 : ['CL','UH','UL','CH'],
+			   11 : ['CL','UL','CH','UH'],
+			   12 : ['CL','UL','UH','CH'],
+			   13 : ['UH','CH','CL','UL'],
+			   14 : ['UH','CH','UL','CL'],
+			   15 : ['UH','CL','CH','UL'],
+			   16 : ['UH','CL','UL','CH'],
+			   17 : ['UH','UL','CH','CL'],
+			   18 : ['UH','UL','CL','CH'],
+			   19 : ['UL','CH','CL','UH'],
+			   20 : ['UL','CH','UH','CL'],
+			   21 : ['UL','CL','CH','UH'],
+			   22 : ['UL','CL','UH','CH'],
+			   23 : ['UL','UH','CH','CL'],
+			   24 : ['UL','UH','CL','CH'],
+			   25 : ['CH','CL','UH','UL'],
+			   26 : ['CH','CL','UL','UH'],
+			   27 : ['CH','UH','CL','UL'],
+			   28 : ['CH','UH','UL','CL'],
+			   29 : ['CH','UL','CL','UH'],
+			   30 : ['CH','UL','UH','CL'],
+			   31 : ['CL','CH','UH','UL'],
+			   32 : ['CL','CH','UL','UH'],
+			   33 : ['CL','UH','CH','UL'],
+			   34 : ['CL','UH','UL','CH'],
+			   35 : ['CL','UL','CH','UH'],
+			   36 : ['CL','UL','UH','CH'],
+			   37 : ['UH','CH','CL','UL'],
+			   38 : ['UH','CH','UL','CL'],
+			   39 : ['UH','CL','CH','UL'],
+			   40 : ['UH','CL','UL','CH'],
+			   41 : ['UH','UL','CH','CL'],
+			   42 : ['UH','UL','CL','CH'],
+			   43 : ['UL','CH','CL','UH'],
+			   44 : ['UL','CH','UH','CL'],
+			   45 : ['UL','CL','CH','UH'],
+			   46 : ['UL','CL','UH','CH'],
+			   47 : ['UL','UH','CH','CL'],
+			   48 : ['UL','UH','CL','CH'],
+			   49 : ['CH','CL','UH','UL'],
+			   50 : ['CH','CL','UL','UH'],
+			   51 : ['CH','UH','CL','UL'],
+			   52 : ['CH','UH','UL','CL'],
+			   53 : ['CH','UL','CL','UH'],
+			   54 : ['CH','UL','UH','CL'],
+			   55 : ['CL','CH','UH','UL'],
+			   56 : ['CL','CH','UL','UH'],
+			   57 : ['CL','UH','CH','UL'],
+			   58 : ['CL','UH','UL','CH'],
+			   59 : ['CL','UL','CH','UH'],
+			   60 : ['CL','UL','UH','CH'],
+			   61 : ['UH','CH','CL','UL'],
+			   62 : ['UH','CH','UL','CL'],
+			   63 : ['UH','CL','CH','UL'],
+			   64 : ['UH','CL','UL','CH'],
+			   65 : ['UH','UL','CH','CL'],
+			   66 : ['UH','UL','CL','CH'],
+			   67 : ['UL','CH','CL','UH'],
+			   68 : ['UL','CH','UH','CL'],
+			   69 : ['UL','CL','CH','UH'],
+			   70 : ['UL','CL','UH','CH'],
+			   71 : ['UL','UH','CH','CL'],
+			   72 : ['UL','UH','CL','CH'],
+			   73 : ['CH','CL','UH','UL'],
+			   74 : ['CH','CL','UL','UH'],
+			   75 : ['CH','UH','CL','UL'],
+			   76 : ['CH','UH','UL','CL'],
+			   77 : ['CH','UL','CL','UH'],
+			   78 : ['CH','UL','UH','CL'],
+			   79 : ['CL','CH','UH','UL'],
+			   80 : ['CL','CH','UL','UH'],
+			   81 : ['CL','UH','CH','UL'],
+			   82 : ['CL','UH','UL','CH'],
+			   83 : ['CL','UL','CH','UH'],
+			   84 : ['CL','UL','UH','CH'],
+			   85 : ['UH','CH','CL','UL'],
+			   86 : ['UH','CH','UL','CL'],
+			   87 : ['UH','CL','CH','UL'],
+			   88 : ['UH','CL','UL','CH'],
+			   89 : ['UH','UL','CH','CL'],
+			   90 : ['UH','UL','CL','CH'],
+			   91 : ['UL','CH','CL','UH'],
+			   92 : ['UL','CH','UH','CL'],
+			   93 : ['UL','CL','CH','UH'],
+			   94 : ['UL','CL','UH','CH'],
+			   95 : ['UL','UH','CH','CL'],
+			   96 : ['UL','UH','CL','CH']}
+    
+
     // Setup the probability layouts
 
     var l1 = [.001, .05, .03]
@@ -41,25 +140,57 @@
 
     //
 
-    var Morad_stories = {1: "Morad Conditional high",
-			 2: "Morad Conditional low",
-			 3: "Morad Unconditional high",
-			 4: "Morad Unconditional low"}
+    var Morad_stories = {"CH": `<p>Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p text-align='left'> Of 1000 aliens, about ${Morad1*1000} will have Morad's disease. </p> <p text-align='left'> Of 1000 aliens, about ${Morad2*1000} will have sore mintels. </p><p text-align='left'>Of 1000 aliens, about ${Morad3*1000} will have discolored truffets.</p><p text-align='left'>Of 1000 aliens, about ${Math.floor(80*Morad2*Morad3)*1000} will have sore mintels and discolored truffets.`,
+			 "CL": "Morad Conditional low",
+			 "UH": "Morad Unconditional high",
+			 "UL": "Morad Unconditional low"}
 
-    var Wodget_stories = {1: "Wodget Conditional high",
-			 2: "Wodget Conditional low",
-			 3: "Wodget Unconditional high",
-			 4: "Wodget Unconditional low"}
+    var Wodget_stories = {"CH": "Wodget Conditional high",
+			  "CL": "Wodget Conditional low",
+			 "UH": "Wodget Unconditional high",
+			 "UL": "Wodget Unconditional low"}
 
-    var Mondel_stories = {1: "Mondel Conditional high",
-			 2: "Mondel Conditional low",
-			 3: "Mondel Unconditional high",
-			 4: "Mondel Unconditional"}
+    var Mondel_stories = {"CH": "Mondel Conditional high",
+			 "CL": "Mondel Conditional low",
+			 "UH": "Mondel Unconditional high",
+			 "UL": "Mondel Unconditional low"}
     
-    var Myastorm_stories = {1: "Myastorm Conditional high",
-			 2: "Myastorm Conditional low",
-			 3: "Myastorm Unconditional high",
-			 4: "Myastorm Unconditional low"}
+    var Myastorm_stories = {"CH": "Myastorm Conditional high",
+			 "CL": "Myastorm Conditional low",
+			 "UH": "Myastorm Unconditional high",
+			    "UL": "Myastorm Unconditional low"}
+
+    if (layout == 1) {
+
+	var Morad1 = l1[0]
+	var Morad2 = l1[1]
+	var Morad3 = l1[2]
+
+	var Morad_condition = condition_lists[condition][0]
+	var Morad = Morad_stories[Morad_condition]
+
+	var Wodget_condition = condition_lists[condition][1]
+	var Wodget = Wodget_stories[Wodget_condition]
+
+	var Mondel_condition = condition_lists[condition][2]
+	var Mondel = Mondel_stories[Mondel_condition]
+
+	var Myastorm_condition = condition_lists[condition][3]
+	var Myastorm = Myastorm_stories[Myastorm_condition]
+
+    }
+
+    else if (layout == 2) {
+
+    }
+
+    else if (layout == 4) {
+
+    }
+
+    else if (layout == 5) {
+
+    }
 
     // Structure and assemble the experiment.
     
@@ -77,7 +208,30 @@
 
     timeline.push(instructions)
 
-    
+    var Morad1 = {type: "html-slider-response",
+		  stimulus: str.concat(Morad, "<p>How likely is it that Treda has Morad's disease?</p>")
+		  labels: ["Almost certainly not", "Almost certainly"],
+		  data: {
+		      story: "Morad"
+		      condition: Morad_condition,
+		      layout: layout,
+		      question: "Likelihood"
+		  }
+		 }
+
+    var Morad2 = {type: "html-slider-response",
+		  stimulus: str.concat(Morad, "<p>How good is the evidence that Treda has Morad's disease?</p>")
+		  labels: ["Not at all good", "Extremely good"],
+		  data: {
+		      story: "Morad"
+		      condition: Morad_condition,
+		      layout: layout,
+		      question: "Evidence"
+		  }
+		 }
+
+    timeline.push(Morad1)
+    timeline.push(Morad2)
     
     jsPsych.init({
 	timeline: timeline,
