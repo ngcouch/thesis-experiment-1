@@ -239,10 +239,10 @@
 
     //
 
-    var Morad_stories = {"CH": `<p>Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p text-align='left'> Of 1000 aliens, about ${Morad1*1000} will have Morad's disease. </p> <p text-align='left'> Of 1000 aliens, about ${Morad2*1000} will have sore mintels. </p><p text-align='left'>Of 1000 aliens, about ${Morad3*1000} will have discolored truffets.</p><p text-align='left'>Of 1000 aliens, about ${Math.floor(80*Morad2*Morad3)*1000} will have sore mintels and discolored truffets.`,
-			 "CL": "Morad Conditional low",
-			 "UH": "Morad Unconditional high",
-			 "UL": "Morad Unconditional low"}
+    var Morad_stories = {"CH": `<p>Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p text-align='left'> Of 1000 aliens, about ${Moradp[0]*1000} will have Morad's disease. </p> <p text-align='left'> Of 1000 aliens, about ${Moradp[1]*1000} will have sore mintels. </p><p text-align='left'>Of 1000 aliens, about ${Moradp[2]*1000} will have discolored truffets.</p><p text-align='left'>Of 1000 aliens, about ${Math.floor(80*Morad2*Morad3)*1000} will have sore mintels and discolored truffets.`,
+			 "CL":  `<p>Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p text-align='left'> Of 1000 aliens, about ${Moradp[0]*1000} will have Morad's disease. </p> <p text-align='left'> Of 1000 aliens, about ${Moradp[1]*1000} will have sore mintels. </p><p text-align='left'>Of 1000 aliens, about ${Moradp[2]*1000} will have discolored truffets.</p><p text-align='left'>Of 1000 aliens, about ${Math.floor(Moradp[1]*Moradp[2])*1000} will have sore mintels and discolored truffets.`,
+			 "UH":  `<p>Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p text-align='left'> Of 1000 aliens, about ${Moradp[0]*1000} will have Morad's disease. </p> <p text-align='left'> Of 1000 aliens with Morad's disease, about ${Moradp[1]*1000} will have sore mintels. </p><p text-align='left'>Of 1000 aliens with Morad's disease, about ${Moradp[2]*1000} will have discolored truffets.</p><p text-align='left'>Of 1000 aliens with Morad's disease, about ${80*Math.floor(Moradp[1]*Moradp[2])*1000} will have sore mintels and discolored truffets.`,
+			 "UL":  `<p>Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p text-align='left'> Of 1000 aliens, about ${Moradp[0]*1000} will have Morad's disease. </p> <p text-align='left'> Of 1000 aliens with Morad's disease, about ${Moradp[1]*1000} will have sore mintels. </p><p text-align='left'>Of 1000 aliens with Morad's disease, about ${Moradp[2]*1000} will have discolored truffets.</p><p text-align='left'>Of 1000 aliens with Morad's disease, about ${Math.floor(Moradp[1]*Moradp[2])*1000} will have sore mintels and discolored truffets.`}
 
     var Wodget_stories = {"CH": "Wodget Conditional high",
 			  "CL": "Wodget Conditional low",
@@ -259,35 +259,54 @@
 			 "UH": "Myastorm Unconditional high",
 			    "UL": "Myastorm Unconditional low"}
 
+
+    var Morad_condition = condition_lists[condition][0]
+    var Morad = Morad_stories[Morad_condition]
+    
+    var Wodget_condition = condition_lists[condition][1]
+    var Wodget = Wodget_stories[Wodget_condition]
+    
+    var Mondel_condition = condition_lists[condition][2]
+    var Mondel = Mondel_stories[Mondel_condition]
+    
+    var Myastorm_condition = condition_lists[condition][3]
+    var Myastorm = Myastorm_stories[Myastorm_condition]
+
+    
     if (layout == 1) {
 
-	var Morad1 = l1[0]
-	var Morad2 = l1[1]
-	var Morad3 = l1[2]
+	var Moradp = l1
+	var Wodgetp = l2
+	var Mondelp = l3
+	var Myastormp = l4
 
-	var Morad_condition = condition_lists[condition][0]
-	var Morad = Morad_stories[Morad_condition]
-
-	var Wodget_condition = condition_lists[condition][1]
-	var Wodget = Wodget_stories[Wodget_condition]
-
-	var Mondel_condition = condition_lists[condition][2]
-	var Mondel = Mondel_stories[Mondel_condition]
-
-	var Myastorm_condition = condition_lists[condition][3]
-	var Myastorm = Myastorm_stories[Myastorm_condition]
 
     }
 
     else if (layout == 2) {
 
+	var Moradp = l2
+	var Wodgetp = l1
+	var Mondelp = l4
+	var Myastormp = l3
+
     }
 
     else if (layout == 4) {
 
+	var Moradp = l3
+	var Wodgetp = l4
+	var Mondelp = l1
+	var Myastormp = l2
+
     }
 
     else if (layout == 5) {
+
+	var Moradp = l4
+	var Wodgetp = l3
+	var Mondelp = l2
+	var Myastormp = l1
 
     }
 
@@ -329,8 +348,7 @@
 		  }
 		 }
 
-    timeline.push(Morad1)
-    timeline.push(Morad2)
+    var
     
     jsPsych.init({
 	timeline: timeline,
