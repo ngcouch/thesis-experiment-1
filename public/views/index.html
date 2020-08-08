@@ -440,7 +440,12 @@
 
     }
 
-    timeline.push(trials)
+    var i;
+    for (i = 0; i < 8; i++){
+
+	timeline.push(trials[i])
+
+    }
     
     jsPsych.init({
 	timeline: timeline,
