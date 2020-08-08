@@ -325,6 +325,7 @@
 
     timeline.push(instructions)
 
+    // Morad trials
     var Morad1 = {type: "html-slider-response",
 		  stimulus: Morad.concat("<p>How likely is it that Treda has Morad's disease?</p>"),
 		  labels: ["Almost certainly not", "Almost certainly"],
@@ -346,6 +347,100 @@
 		      question: "Evidence"
 		  }
 		 }
+
+    // Wodget trials
+    var Wodget1 = {type: "html-slider-response",
+		  stimulus: Wodget.concat("<p>How likely is it that Treda has Morad's disease?</p>"),
+		  labels: ["Almost certainly not", "Almost certainly"],
+		  data: {
+		      story: "Wodget",
+		      condition: Wodget_condition,
+		      layout: layout,
+		      question: "Likelihood"
+		  }
+		 }
+
+    var Wodget2 = {type: "html-slider-response",
+		  stimulus: Wodget.concat("<p>How good is the evidence that Treda has Wodget's disease?</p>"),
+		  labels: ["Not at all good", "Extremely good"],
+		  data: {
+		      story: "Wodget",
+		      condition: Wodget_condition,
+		      layout: layout,
+		      question: "Evidence"
+		  }
+		 }
+
+    // Mondel trials
+    var Mondel1 = {type: "html-slider-response",
+		  stimulus: Mondel.concat("<p>How likely is it that Treda has Mondel's disease?</p>"),
+		  labels: ["Almost certainly not", "Almost certainly"],
+		  data: {
+		      story: "Mondel",
+		      condition: Mondel_condition,
+		      layout: layout,
+		      question: "Likelihood"
+		  }
+		 }
+
+    var Mondel2 = {type: "html-slider-response",
+		  stimulus: Mondel.concat("<p>How good is the evidence that Treda has Mondel's disease?</p>"),
+		  labels: ["Not at all good", "Extremely good"],
+		  data: {
+		      story: "Mondel",
+		      condition: Mondel_condition,
+		      layout: layout,
+		      question: "Evidence"
+		  }
+		 }
+
+    // Myastorm trials
+    var Myastorm1 = {type: "html-slider-response",
+		  stimulus: Myastorm.concat("<p>How likely is it that Treda has Myastorm's disease?</p>"),
+		  labels: ["Almost certainly not", "Almost certainly"],
+		  data: {
+		      story: "Myastorm",
+		      condition: Myastorm_condition,
+		      layout: layout,
+		      question: "Likelihood"
+		  }
+		 }
+
+    var Myastorm2 = {type: "html-slider-response",
+		  stimulus: Myastorm.concat("<p>How good is the evidence that Treda has Myastorm's disease?</p>"),
+		  labels: ["Not at all good", "Extremely good"],
+		  data: {
+		      story: "Myastorm",
+		      condition: Myastorm_condition,
+		      layout: layout,
+		      question: "Evidence"
+		  }
+		    }
+
+    if (layout == 1) {
+
+	var trials = [Morad1, Morad2, Wodget1, Wodget2, Mondel1, Mondel2, Myastorm1, Myastorm2]
+
+    }
+
+    else if (layout == 2) {
+
+	var trials =  [Mondel1, Mondel2, Myastorm1, Myastorm2,Morad1, Morad2, Wodget1, Wodget2]
+    }
+
+    else if (layout == 3) {
+
+	var trials =  [Myastorm1, Myastorm2,Mondel1, Mondel2,Wodget1, Wodget2, Morad1, Morad2]
+
+    }
+    
+    else if (layout == 4) {
+
+	var trials =  [Wodget1, Wodget2,Morad1, Morad2, Myastorm1, Myastorm2, Mondel1, Mondel2]
+
+    }
+
+    timeline.push(trials)
     
     jsPsych.init({
 	timeline: timeline,
