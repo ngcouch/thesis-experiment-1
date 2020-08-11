@@ -236,7 +236,7 @@
     trials = jsPsych.randomization.shuffle(trials)
 
     var i;
-    for (i = 0; i < 8; i++){
+    for (i = 0; i < trials.length; i++){
 
 	timeline.push(trials[i][0])
 	timeline.push(trials[i][1])
