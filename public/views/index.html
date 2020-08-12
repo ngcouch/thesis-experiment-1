@@ -22,6 +22,7 @@
     // Get participant information and use it to derive their condition number.
 
     var ID = window.prompt("Enter your participant ID:")
+    var unique_ID = jsPsych.randomization.randomID(6)
 
     while (!Object.keys(conditions).includes(ID)) {
 
@@ -246,6 +247,7 @@
     }
 
     jsPsych.data.addProperties({PID: ID,
+				UID: unique_ID,
 				condition_num: condition})
     
     jsPsych.init({
