@@ -31,9 +31,38 @@ var server = app.listen(process.env.PORT, function(){
 
 app.post('/experiment-data', function(request, response) {
 
-    console.log(request.body)
+    var username = process.env.ORMONGO_USER;
+    var password = process.env.ORMONGO_PASS;
+    var hosts = 'iad2-c12-1.mongo.objectrocket.com:52499,iad2-c12-2.mongo.objectrocket.com:52499,iad2-c12-0.mongo.objectrocket.com:52499';
+    var database = 'experiment1-jason';
+    var options = '?replicaSet=18d6e0cdbb894d2293da62eaab115acd';
+    var connectionString = 'mongodb://' + username + ':' + password + '@' + hosts + '/' + database + options;
+
+    var data = request.body
+
+    console.log(data)
+
+    /*
     response.end()
-  
+      MongoClient.connect(connectionString, function(err, db) {
+    if (err) {
+        console.log('Error: ', err);
+	console.log(data)
+    } else {
+        console.log('Connected!');
+	
+	var collection = db.db('experiment1-json').collection("data");
+	collection.insertMany(data, function(err, res) {
+
+	    if (err) throw err;
+	    console.log("Data inserted");
+	    db.close();
+	})
+    }
+*/
+    });
+
+    response.end("")
    
 })
 
