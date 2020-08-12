@@ -48,7 +48,7 @@ app.post('/experiment-data', function(request, response) {
 	} else {
             console.log('Connected!');
 	    
-	    var collection = db.db('experiment1-json').collection("data");
+	    var collection = db.db(database).collection("data");
 	    collection.insertMany(data, function(err, res) {
 		
 		if (err) throw err;
