@@ -59,10 +59,11 @@ app.post('/experiment-data', function(request, response) {
 	    db.close();
 	})
     }
-*/
     });
 
     response.end("")
+
+*/
    
 })
 
