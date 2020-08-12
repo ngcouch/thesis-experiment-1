@@ -244,6 +244,9 @@
 	timeline.push(trials[i][1])
 
     }
+
+    jsPsych.data.addProperties({PID: ID,
+				condition_num: condition})
     
     jsPsych.init({
 	timeline: timeline,
