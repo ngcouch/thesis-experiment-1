@@ -33,10 +33,9 @@ app.post('/experiment-data', function(request, response) {
 
     var username = process.env.ORMONGO_USER;
     var password = process.env.ORMONGO_PASS;
-    var hosts = 'iad2-c12-1.mongo.objectrocket.com:52499,iad2-c12-2.mongo.objectrocket.com:52499,iad2-c12-0.mongo.objectrocket.com:52499';
-    var database = 'experiment1-jason';
-    var options = '?replicaSet=18d6e0cdbb894d2293da62eaab115acd';
-    var connectionString = 'mongodb://' + username + ':' + password + '@' + hosts + '/' + database + options;
+    var hosts = 'ds329058.mlab.com:29058';
+    var database = 'heroku_xx1ztvcl';
+    var connectionString = 'mongodb://' + username + ':' + password + '@' + hosts + '/' + database;
 
     var data = request.body
 
