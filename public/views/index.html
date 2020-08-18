@@ -80,7 +80,7 @@
     // setup the stories
 
     var Morad_stories = {"UH": `<p style="text-align:left">Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[0]} will have Morad's disease. </p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[1]} will have sore mintels. </p><p style="text-align:left">Of 1000 aliens, about ${1000*Moradp[2]} will have discolored truffets.</p><p style="text-align:left">Of 1000 aliens, about ${Math.ceil(1000*((3*Moradp[1]*Moradp[2])+0.07))} will have sore mintels and discolored truffets.`,
-			 "UL":  `<p style="text-align:left">Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[0]} will have Morad's disease. </p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[1]} will have sore mintels. </p><p style="text-align:left">Of 1000 aliens, about ${Moradp[2]} will have discolored truffets.</p><p style="text-align:left">Of 1000 aliens, about ${Math.ceil(1000*Moradp[1]*Moradp[2])} will have sore mintels and discolored truffets.`,
+			 "UL":  `<p style="text-align:left">Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[0]} will have Morad's disease. </p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[1]} will have sore mintels. </p><p style="text-align:left">Of 1000 aliens, about ${1000*Moradp[2]} will have discolored truffets.</p><p style="text-align:left">Of 1000 aliens, about ${Math.ceil(1000*Moradp[1]*Moradp[2])} will have sore mintels and discolored truffets.`,
 			 "CH":  `<p style="text-align:left">Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[0]} will have Morad's disease. </p> <p style="text-align:left"> Of 1000 aliens with Morad's disease, about ${1000*Moradp[1]} will have sore mintels. </p><p style="text-align:left">Of 1000 aliens with Morad's disease, about ${1000*Moradp[2]} will have discolored truffets.</p><p style="text-align:left">Of 1000 aliens with Morad's disease, about ${Math.ceil(1000*((3*Moradp[1]*Moradp[2])+0.07))} will have sore mintels and discolored truffets.`,
 			 "CL":  `<p style="text-align:left">Imagine that you are a doctor on the alien planet Zorg, and you are treating an alien patient, Treda. Treda has two symptoms: sore mintels and discolored spots. Both are known symptoms of Morad's disease. However, not every alien with these symptoms has Morad's disease. From your experience you know the following:</p> <p style="text-align:left"> Of 1000 aliens, about ${1000*Moradp[0]} will have Morad's disease. </p> <p style="text-align:left"> Of 1000 aliens with Morad's disease, about ${1000*Moradp[1]} will have sore mintels. </p><p style="text-align:left">Of 1000 aliens with Morad's disease, about ${1000*Moradp[2]} will have discolored truffets.</p><p style="text-align:left">Of 1000 aliens with Morad's disease, about ${Math.ceil(1000*Moradp[1]*Moradp[2])} will have sore mintels and discolored truffets.`}
 
@@ -109,8 +109,6 @@
     var Mondel_condition = condition_lists[condition][2]
     var Mondel = Mondel_stories[Mondel_condition]
 
-    console.log(Mondel_condition)
-    
     var Myastorm_condition = condition_lists[condition][3]
     var Myastorm = Myastorm_stories[Myastorm_condition]
 
@@ -265,7 +263,8 @@
 		.fail(function() {
 		    alert("A problem occurred while writing to the database. Please contact the researcher for more information.")
 		})
-	}
+	},
+	experiment_width: 800
     })
 
     </script>
