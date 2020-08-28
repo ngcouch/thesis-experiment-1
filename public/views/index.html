@@ -35,10 +35,10 @@
     // Setup the probability layouts
     
     var layout = Math.floor(condition/24)+1
-    var l1 = [.001, .05, .03]
-    var l2 = [.005, .045, .025]
-    var l3 = [.03, .2, .15]
-    var l4 = [.07, .09, .1]
+    var l1 = [.05, .1, .08]
+    var l2 = [.04, .28, .24]
+    var l3 = [.03, .11, .09]
+    var l4 = [.07, .1, .09]
    
     if (layout == 1) {
 
@@ -304,15 +304,19 @@
 		  [Mondel1, Mondel2],
 		  [Myastorm1, Myastorm2]]
 
-    trials = jsPsych.randomization.shuffle(trials)
+    var order = function(trials, layout) {
 
-    var i;
-    for (i = 0; i < trials.length; i++){
-
-	timeline.push(trials[i][0])
-	timeline.push(trials[i][1])
+	if (layout == 1) return trials
+	if (layout == 2) return [trials[2], trials[3], trials[0], trials[1]]
+	if (layout == 3) return [trials[3], trials[2], trials[1], trials[0]]
+	if (layout == 4) return [trials[1], trials[0], trials[3], trials[2]]
 
     }
+
+    trials = order(trials, layout)
+
+    timeline.push(trials)
+    timeline = timeline.flat(5)
 
     jsPsych.data.addProperties({PID: ID,
 				UID: unique_ID,
