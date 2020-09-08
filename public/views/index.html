@@ -191,7 +191,7 @@
     timeline.push(welcome)
 
     var instructions = {type: "html-keyboard-response",
-			stimulus: "In this experiment, you will be asked to estimate various quantites, based on information that we provide you. Information will be presented in story form. For each story, you will answer two questions, on different pages. After answering the first question, the page will advance to the next question, while the story information will stay on the same page. When answering the questions, please keep in mind all of what you know about the situation. <p>Press the spacebar to continue.</p>",
+			stimulus: "<p style='text-align:left'>In this experiment, you will be asked to estimate various quantites, based on information that we provide you. Information will be presented in story form. For each story, you will answer two questions, on different pages. After answering the first question, the page will advance to the next question, while the story information will stay on the same page. When answering the questions, please keep in mind all of what you know about the situation.</p> <p>Press the spacebar to continue.</p>",
 			choices: [32]
 		       };
 
@@ -201,7 +201,7 @@
     
     // Morad trials
     var Morad1 = {type: "html-slider-response",
-		  stimulus: Morad + "<p>How likely is it that Treda has Morad's disease?</p>",
+		  stimulus: Morad + "<p><b>How likely is it that Treda has Morad's disease?</b></p>",
 		  labels: ["Almost certainly not", "Almost certainly"],
 		  slider_width: 500,
 		  data: {
@@ -213,7 +213,7 @@
 		 }
 
     var Morad2 = {type: "html-slider-response",
-		  stimulus: warning + Morad + "<p>How good is the evidence that Treda has Morad's disease?</p>",
+		  stimulus: warning + Morad + "<p><b>How good is the evidence that Treda has Morad's disease?</b></p>",
 		  labels: ["Not at all good", "Extremely good"],
 		  slider_width: 500,
 		  data: {
@@ -226,7 +226,7 @@
 
     // Wodget trials
     var Wodget1 = {type: "html-slider-response",
-		  stimulus: Wodget + "<p>How likely is it that the capacitor is bad?</p>",
+		  stimulus: Wodget + "<p><b>How likely is it that the capacitor is bad?</b></p>",
 		   labels: ["Almost certainly not", "Almost certainly"],
 		   slider_width: 500,
 		  data: {
@@ -238,7 +238,7 @@
 		 }
 
     var Wodget2 = {type: "html-slider-response",
-		  stimulus: warning + Wodget + "<p>How good is the evidence that the capacitor is bad?</p>",
+		  stimulus: warning + Wodget + "<p><b>How good is the evidence that the capacitor is bad?</b></p>",
 		  labels: ["Not at all good", "Extremely good"],
 		  slider_width: 500,
 		  data: {
@@ -251,7 +251,7 @@
 
     // Mondel trials
     var Mondel1 = {type: "html-slider-response",
-		  stimulus: Mondel + "<p>How likely is it that it's a Type 1 Mondel?</p>",
+		  stimulus: Mondel + "<p><b>How likely is it that it's a Type 1 Mondel?</b></p>",
 		   labels: ["Almost certainly not", "Almost certainly"],
 		   slider_width: 500,
 		  data: {
@@ -263,7 +263,7 @@
 		 }
 
     var Mondel2 = {type: "html-slider-response",
-		  stimulus: warning + Mondel + "<p>How good is the evidence that it's a Type 1 Mondel?</p>",
+		  stimulus: warning + Mondel + "<p><b>How good is the evidence that it's a Type 1 Mondel?</b></p>",
 		   labels: ["Not at all good", "Extremely good"],
 		   slider_width: 500,
 		  data: {
@@ -276,7 +276,7 @@
 
     // Myastorm trials
     var Myastorm1 = {type: "html-slider-response",
-		  stimulus: Myastorm + "<p>How likely is it that the star will form a Myastorm?</p>",
+		  stimulus: Myastorm + "<p><b>How likely is it that the star will form a Myastorm?</b></p>",
 		     labels: ["Almost certainly not", "Almost certainly"],
 		     slider_width: 500,
 		  data: {
@@ -288,7 +288,7 @@
 		 }
 
     var Myastorm2 = {type: "html-slider-response",
-		  stimulus: warning + Myastorm + "<p>How good is the evidence that the star will form a Myastorm?</p>",
+		  stimulus: warning + Myastorm + "<p><b>How good is the evidence that the star will form a Myastorm?</b></p>",
 		     labels: ["Not at all good", "Extremely good"],
 		     slider_width: 500,
 		  data: {
