@@ -186,7 +186,8 @@
     var timeline = []
 
     var welcome = {type: "html-keyboard-response",
-		   stimulus: "Welcome to the experiment, and thank you for your time! Please do not refresh the browser or use the back button, as that will erase your progress in the experimeint. Press any key to continue."
+		   stimulus: "Welcome to the experiment, and thank you for your time! Please do not refresh the browser or use the back button, as that will erase your progress in the experimeint. Press space to continue.",
+		   choices: [32]
 		  };
     timeline.push(welcome)
 
@@ -332,7 +333,7 @@
 		contentType: "application/json"
 	    })
 		.done(function() {
-		    alert("Thank you!")
+		    alert("Thank you! You may now close this window.")
 		})
 		.fail(function() {
 		    alert("A problem occurred while writing to the database. Please contact the researcher for more information.")
