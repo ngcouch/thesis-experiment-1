@@ -1,7 +1,8 @@
 // --- LOADING MODULES
 var express = require('express'),
     body_parser = require('body-parser'),
-    MongoClient = require('mongodb').MongoClient;
+    redis = require('redis'),
+    rejson = require('redis-json')
 
 // --- INSTANTIATE THE APP
 var app = express();
@@ -31,31 +32,15 @@ var server = app.listen(process.env.PORT, function(){
 
 app.post('/experiment-data', function(request, response) {
 
-    var username = process.env.ORMONGO_USER;
-    var password = process.env.ORMONGO_PASS;
-    var hosts = 'ds329058.mlab.com:29058';
-    var database = 'heroku_xx1ztvcl';
-    var connectionString = 'mongodb://' + username + ':' + password + '@' + hosts + '/' + database;
+    var client = redis.createClient(process.env.REDIS_URL)
+    client.on('connect', function() {
+	console.log('connected');
+    });
 
     var data = request.body
 
-    MongoClient.connect(connectionString, function(err, db) {
-	if (err) {
-            console.log('Error: ', err);
-	    console.log(data)
-	} else {
-            console.log('Connected!');
-	    
-	    var collection = db.db(database).collection("data");
-	    collection.insertMany(data, function(err, res) {
-		
-		if (err) throw err;
-		console.log("Data inserted");
-		db.close();
-	    })
-	}
-    });
-    
+    console.log(data)
+
     response.end("")
    
 })
