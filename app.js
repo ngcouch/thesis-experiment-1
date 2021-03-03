@@ -45,8 +45,6 @@ app.post('/experiment-data', function(request, response) {
 	var flat = JSON.stringify(data)
 	client.set(PID, flat)
 
-	console.log("Data logged"
-
     response.end("")
    
 })
