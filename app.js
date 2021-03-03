@@ -38,8 +38,14 @@ app.post('/experiment-data', function(request, response) {
     });
 
     var data = request.body
+    var PID  = data[0].PID
 
-    console.log(data)
+    if (!client.exists(PID)) {
+
+	var flat = JSON.stringify(data)
+	client.set(PID, flat)
+
+	console.log("Data logged"
 
     response.end("")
    
