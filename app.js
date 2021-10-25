@@ -33,8 +33,8 @@ var server = app.listen(process.env.PORT, function(){
 app.post('/experiment-data', function(request, response) {
 
     var client = redis.createClient({
-	socket.host : process.env.THESIS2HOST,
-	socket.port : process.env.THESIS2PORT,
+	host : process.env.THESIS2HOST,
+	port : process.env.THESIS2PORT,
 	password : process.env.THESIS2PASS})
     client.on('connect', function() {
 	console.log('connected');
